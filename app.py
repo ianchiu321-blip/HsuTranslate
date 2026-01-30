@@ -10,7 +10,7 @@ line_bot_api = LineBotApi(os.environ.get("LINE_CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.environ.get("LINE_CHANNEL_SECRET"))
 
 genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
-model = genai.GenerativeModel("gemini-1.5-flash")
+model = genai.GenerativeModel("gemini-2.5-flash-lite")
 
 @app.route("/callback", methods=["POST"])
 def callback():
@@ -46,5 +46,6 @@ if __name__ == "__main__":
     import os
     port = int(os.environ["PORT"])
     app.run(host="0.0.0.0", port=port)
+
 
 
