@@ -33,16 +33,18 @@ def handle_message(event):
 {user_text}
 """
 
-  response = model.generate_content(prompt)
-translated = response.text.strip()
+    response = model.generate_content(prompt)
+    translated = response.text.strip()
 
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=translated)
     )
 
+
 if __name__ == "__main__":
     import os
     port = int(os.environ["PORT"])
     app.run(host="0.0.0.0", port=port)
+
 
